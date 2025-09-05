@@ -656,23 +656,7 @@ body {
     .dropdown-menu::before { display: none; }
     .dropdown.active > .dropdown-menu { opacity: 1; visibility: visible; transform: translateY(0); }
 
-    /* Edge fade hints for horizontal scroll */
-    .main-nav-container::before,
-    .main-nav-container::after {
-        content: "";
-        position: absolute;
-        top: 0; bottom: 0;
-        width: 28px;
-        pointer-events: none;
-        z-index: 1099;
-    }
-    .main-nav-container::before { left: 0; background: linear-gradient(90deg, rgba(0,0,0,1), rgba(0,0,0,0)); }
-    .main-nav-container::after { right: 0; background: linear-gradient(270deg, rgba(0,0,0,1), rgba(0,0,0,0)); }
-
-    /* Arrow scroll buttons */
-    .nav-scroll-btn { position: absolute; top: 50%; transform: translateY(-50%); width: 28px; height: 28px; border-radius: 50%; border: 1px solid #444; background: rgba(255,255,255,0.08); color: #fff; display: flex; align-items: center; justify-content: center; z-index: 1100; cursor: pointer; }
-    .nav-scroll-btn.left { left: 6px; }
-    .nav-scroll-btn.right { right: 6px; }
+    /* Removed edge fade hints and arrow scroll buttons */
 }
 
 /* removed overlay panel styles */

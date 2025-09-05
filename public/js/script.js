@@ -211,21 +211,4 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-// Add arrow scroll buttons for mobile nav
-document.addEventListener('DOMContentLoaded', function() {
-    const isMobile = window.matchMedia('(max-width: 992px)').matches;
-    const container = document.querySelector('.main-nav-container');
-    if (!isMobile || !container) return;
-    // create arrows
-    const leftBtn = document.createElement('button');
-    leftBtn.className = 'nav-scroll-btn left';
-    leftBtn.innerHTML = '&#8249;';
-    const rightBtn = document.createElement('button');
-    rightBtn.className = 'nav-scroll-btn right';
-    rightBtn.innerHTML = '&#8250;';
-    container.appendChild(leftBtn);
-    container.appendChild(rightBtn);
-    const scrollBy = () => Math.min(200, container.clientWidth * 0.6);
-    leftBtn.addEventListener('click', () => container.scrollBy({ left: -scrollBy(), behavior: 'smooth' }));
-    rightBtn.addEventListener('click', () => container.scrollBy({ left: scrollBy(), behavior: 'smooth' }));
-});
+// Removed arrow scroll buttons per request; users can swipe/drag to scroll the nav.
