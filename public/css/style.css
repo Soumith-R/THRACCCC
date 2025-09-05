@@ -365,9 +365,22 @@ body {
 /* Hero Section */
 .hero {
     position: relative;
-    height: 500px;
+    height: 640px; /* increased default height */
     overflow: hidden;
 }
+    /* Responsive hero heights */
+    @media (min-width: 1400px) {
+        .hero { height: 720px; }
+    }
+    @media (max-width: 1199.98px) {
+        .hero { height: 560px; }
+    }
+    @media (max-width: 991.98px) {
+        .hero { height: 460px; }
+    }
+    @media (max-width: 575.98px) {
+        .hero { height: 380px; }
+    }
 
 .hero-slider .slide {
     position: absolute;
