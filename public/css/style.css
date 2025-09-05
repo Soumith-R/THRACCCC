@@ -328,29 +328,46 @@ body {
     background-color: #7a0e0e;
 }
 
-/* About Section */
+/* About Section (Homepage) */
 .about-section {
-    padding: 60px 0;
+    padding: 80px 0; /* more breathing room */
     background-color: #fff;
 }
 
 .about-content {
     display: grid;
     grid-template-columns: 2fr 1fr;
-    gap: 40px;
+    gap: 60px; /* wider gap between text and update panel */
     align-items: flex-start;
 }
 
 .about-text h2 {
     text-align: left;
     margin-top: 0;
+    margin-bottom: 16px;
+    text-transform: none; /* don’t force uppercase here */
+    position: relative;
+    padding-left: 18px; /* space for accent bar */
+}
+
+/* Left accent bar for About title */
+.about-text h2::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.15em;
+    width: 6px;
+    height: 1.1em;
+    background: #111; /* black accent as in reference */
+    border-radius: 2px;
 }
 
 .latest-update .update-box {
-    border: 1px solid #ddd;
-    height: 300px;
-    padding: 15px;
-    background: #f9f9f9;
+    border: 1px solid #d0d0d0;
+    height: 360px; /* taller box per reference */
+    padding: 18px;
+    background: #e9e9e9;
+    border-radius: 8px; /* rounded corners */
 }
 
 /* Stats Section */
@@ -717,28 +734,29 @@ body {
     }
 }
 
-/* About Page Styles */
+/* About Page Styles (scoped) */
 .about-page-content {
     padding: 40px 0 80px;
     background-color: #fff;
 }
 
-.about-section {
+/* Keep About page content readable but not too narrow */
+.about-page-content .about-section {
     text-align: center;
-    max-width: 960px; /* Increased width */
+    max-width: 1100px; /* a bit wider */
     margin: 0 auto 40px;
 }
 
-.about-section h2 {
+.about-page-content .about-section h2 {
     font-size: 2rem;
     font-weight: 600;
     margin-bottom: 20px;
     color: #333;
 }
 
-.about-section p {
+.about-page-content .about-section p {
     font-size: 1.1rem;
-    line-height: 1.6; /* Reduced line spacing */
+    line-height: 1.75; /* comfortable reading */
     color: #444;
     margin-bottom: 20px;
     text-align: left;
@@ -782,6 +800,8 @@ body {
     .human-rights-section li {
         font-size: 1rem;
     }
+    .about-section { padding: 56px 0; }
+    .about-content { gap: 28px; }
 }
 
 /* Publications Page Styles */
