@@ -1,4 +1,15 @@
 document.addEventListener('DOMContentLoaded', function() {
+    // Ensure main nav starts scrolled to the first item on small screens
+    const navContainer = document.querySelector('.main-nav-container');
+    const ensureNavStart = () => {
+        if (!navContainer) return;
+        const isMobile = window.matchMedia('(max-width: 992px)').matches;
+        if (isMobile) {
+            navContainer.scrollLeft = 0;
+        }
+    };
+    ensureNavStart();
+    window.addEventListener('resize', ensureNavStart);
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.mobile-menu-toggle');
     const mainNav = document.getElementById('mainNav') || document.querySelector('.main-nav');

@@ -586,8 +586,9 @@ body {
 
     /* Nav: keep horizontal and scrollable (sideways), never vertical */
     .mobile-menu-toggle { display: none; }
-    .main-nav-container { overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; }
-    .main-nav { display: inline-flex; flex-direction: row; flex-wrap: nowrap; width: max-content; justify-content: flex-start; }
+    .main-nav-container { display: block; overflow-x: auto; overflow-y: visible; -webkit-overflow-scrolling: touch; text-align: left; }
+    .main-nav-container nav { display: inline-block; }
+    .main-nav { display: inline-flex; flex-direction: row; flex-wrap: nowrap; width: max-content; justify-content: flex-start; margin-left: 0 !important; }
     .main-nav li { flex: 0 0 auto; border-right: 1px solid #333; }
     .main-nav li a { text-align: center; padding: 12px 10px; border-bottom: none; }
     .dropdown { position: relative; }
