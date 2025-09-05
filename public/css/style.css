@@ -163,14 +163,14 @@ body {
 
 .logo-text h1 {
     margin: 0;
-    font-size: 1.6rem;
+    font-size: calc(1.6rem + 2px); /* +2px as requested */
     color: #fff;
     font-weight: 700;
 }
 
 .logo-text p {
     margin: 2px 0 0;
-    font-size: 0.8rem;
+    font-size: calc(0.8rem - 2px); /* -2px as requested */
     color: #f5d9d9;
 }
 
@@ -649,8 +649,8 @@ body {
 @media (max-width: 992px) {
     .header-content { flex-direction: row; gap: 16px; }
     .logo-container { flex-direction: row; text-align: left; }
-    .logo-text h1 { font-size: 1rem; line-height: 1.25; }
-    .logo-text p { font-size: 0.72rem; line-height: 1.25; }
+    .logo-text h1 { font-size: calc(1rem + 2px); line-height: 1.25; }
+    .logo-text p { font-size: calc(0.72rem - 2px); line-height: 1.25; }
     .logo { max-height: 72px; margin-right: 12px; }
     .main-header { padding: 12px 0 10px; min-height: auto; }
     .header-menu-toggle { margin-left: auto; }
@@ -684,8 +684,8 @@ body {
 
 /* Very small screens */
 @media (max-width: 576px) {
-    .logo-text h1 { font-size: 0.9rem; }
-    .logo-text p { font-size: 0.68rem; }
+    .logo-text h1 { font-size: calc(0.9rem + 2px); }
+    .logo-text p { font-size: calc(0.68rem - 2px); }
     .logo { max-height: 58px; margin-right: 10px; }
     .main-header { padding: 10px 0 8px; }
     .about-section { padding: 56px 0; }
