@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function() {
     // Mobile Menu Toggle
     const menuToggle = document.querySelector('.mobile-menu-toggle');
-    const mainNavUl = document.querySelector('.main-nav ul');
+    const mainNav = document.getElementById('mainNav') || document.querySelector('.main-nav');
 
-    if (menuToggle && mainNavUl) {
+    if (menuToggle && mainNav) {
         menuToggle.addEventListener('click', () => {
-            mainNavUl.classList.toggle('active');
+            const isOpen = mainNav.classList.toggle('active');
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
         });
     }
 
@@ -17,10 +18,12 @@ document.addEventListener('DOMContentLoaded', function() {
         const dropdownMenu = dropdown.querySelector('.dropdown-menu');
         
         if (dropdownLink && dropdownMenu) {
-            // Handle click events for dropdown toggle
+            // Handle click events for dropdown toggle (mobile only)
             dropdownLink.addEventListener('click', function(e) {
+                const isMobile = window.matchMedia('(max-width: 992px)').matches;
+                if (!isMobile) return; // allow normal navigation on desktop
                 e.preventDefault();
-                
+
                 // Close all other dropdowns
                 dropdowns.forEach(otherDropdown => {
                     if (otherDropdown !== dropdown) {
