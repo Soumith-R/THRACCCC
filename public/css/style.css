@@ -440,9 +440,17 @@ body {
     text-align: left;
     margin-top: 0;
     margin-bottom: 16px;
+    line-height: 1.2;
     text-transform: none; /* don’t force uppercase here */
     position: relative;
     padding-left: 18px; /* space for accent bar */
+}
+
+/* Ensure Latest Update heading aligns level with About heading on desktop */
+.latest-update .section-title {
+    margin-top: 0;
+    margin-bottom: 16px;
+    line-height: 1.2;
 }
 
 /* Left accent bar for About title */
