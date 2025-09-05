@@ -46,6 +46,34 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     });
 
+    // Header actions menu (mobile)
+    const headerToggle = document.querySelector('.header-menu-toggle');
+    const headerMenu = document.getElementById('headerActionsMenu');
+
+    if (headerToggle && headerMenu) {
+        headerToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            const willShow = !headerMenu.classList.contains('show');
+            headerMenu.classList.toggle('show', willShow);
+            headerToggle.setAttribute('aria-expanded', String(willShow));
+        });
+
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.header-menu') && !e.target.closest('.header-menu-toggle')) {
+                headerMenu.classList.remove('show');
+                headerToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+
+        // Close menu if resizing to desktop
+        window.addEventListener('resize', () => {
+            if (window.matchMedia('(min-width: 993px)').matches) {
+                headerMenu.classList.remove('show');
+                headerToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
     // Hero Slider
     const slides = document.querySelectorAll('.hero-slider .slide');
     const dotsContainer = document.querySelector('.slider-dots');
