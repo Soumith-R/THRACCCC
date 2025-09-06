@@ -895,6 +895,36 @@ body {
     text-align: left;
 }
 
+/* Our Works pages – cleaner alignment & spacing (applies across reused layout) */
+.about-page-content .about-section h3 {
+        text-align: left;
+        margin-top: 42px;
+        margin-bottom: 14px;
+        font-size: 1.45rem;
+        line-height: 1.3;
+        font-weight: 600;
+        color: #2d2d2d;
+}
+.about-page-content .about-section h3:first-of-type { margin-top: 10px; }
+.about-page-content .about-section ol,
+.about-page-content .about-section ul {
+        text-align: left;
+        padding-left: 24px;
+        margin: 0 0 26px;
+        line-height: 1.65;
+}
+.about-page-content .about-section li { margin-bottom: 10px; }
+.about-page-content .about-section li strong { color: #222; }
+.about-page-content .about-section ol { counter-reset: item; }
+.about-page-content .about-section ol > li { list-style: decimal; }
+.about-page-content .about-section ul { list-style: disc; }
+.about-page-content .about-section { text-align: left; }
+
+@media (max-width: 768px) {
+    .about-page-content .about-section h3 { font-size: 1.28rem; margin-top: 34px; }
+    .about-page-content .about-section p { font-size: 1.02rem; }
+}
+
 .human-rights-section {
     max-width: 960px; /* Increased width */
     margin: 0 auto;
@@ -1000,4 +1030,66 @@ body {
     .report-download {
         align-self: flex-end;
     }
+}
+
+/* ===== Our Works (Refined Professional Layout) ===== */
+.skip-link { position:absolute; left:-999px; top:-999px; background:#111; color:#fff; padding:8px 14px; z-index:5000; border-radius:4px; }
+.skip-link:focus { left:12px; top:12px; outline:2px solid #fff; }
+
+.work-page-content { padding:60px 0 90px; background:#fff; }
+.work-layout { display:grid; grid-template-columns:260px 1fr; gap:54px; align-items:start; }
+.work-sidebar { position:sticky; top:110px; align-self:start; }
+.work-toc { background:#faf9f9; border:1px solid #e3e2e2; padding:18px 20px 22px; border-radius:12px; box-shadow:0 4px 14px rgba(0,0,0,0.04); }
+.work-toc ol { list-style:none; margin:0; padding:0; counter-reset: toc; }
+.work-toc li { margin:0 0 10px; line-height:1.3; }
+.work-toc li:last-child { margin-bottom:0; }
+.work-toc a { position:relative; display:block; text-decoration:none; font-weight:600; color:#4a0d0d; font-size:0.92rem; padding:6px 6px 6px 30px; border-radius:6px; transition:background .18s,color .18s; }
+.work-toc a::before { counter-increment: toc; content:counter(toc) "."; position:absolute; left:8px; top:50%; transform:translateY(-50%); font-weight:600; color:#8B0000; }
+.work-toc a:hover, .work-toc a:focus { background:#f1e8e8; color:#300; }
+.work-toc a[aria-current="page"], .work-toc a.active { background:#8B0000; color:#fff; }
+
+.visually-hidden { position:absolute !important; width:1px !important; height:1px !important; padding:0 !important; margin:-1px !important; overflow:hidden !important; clip:rect(0 0 0 0) !important; white-space:nowrap !important; border:0 !important; }
+
+.work-article { max-width:960px; }
+.work-article section + section { margin-top:60px; }
+.work-article h2 { font-size:1.9rem; margin:0 0 18px; line-height:1.22; position:relative; padding-left:14px; }
+.work-article h2::before { content:""; position:absolute; left:0; top:0.3em; width:6px; height:0.9em; background:#8B0000; border-radius:3px; }
+.work-article p { font-size:1.05rem; line-height:1.7; margin:0 0 1.25em; color:#444; }
+.work-article p + p { margin-top:-4px; }
+.work-article ol, .work-article ul { margin:0 0 1.4em 0; padding:0; }
+.work-article ol.numbered-list { counter-reset:item; list-style:none; }
+.work-article ol.numbered-list > li { counter-increment:item; position:relative; padding:10px 14px 10px 52px; margin:0 0 10px; background:#fff; border:1px solid #e3dede; border-radius:10px; box-shadow:0 2px 4px rgba(0,0,0,0.03); }
+.work-article ol.numbered-list > li::before { content:counter(item); position:absolute; left:14px; top:50%; transform:translateY(-50%); width:30px; height:30px; border-radius:50%; background:#8B0000; color:#fff; display:flex; align-items:center; justify-content:center; font-weight:600; font-size:0.9rem; box-shadow:0 1px 2px rgba(0,0,0,0.15); }
+.work-article ul.check-list { list-style:none; }
+.work-article ul.check-list > li { position:relative; padding:6px 6px 6px 36px; margin:0 0 8px; background:#fff; border:1px solid #ece8e8; border-radius:8px; font-size:0.98rem; }
+.work-article ul.check-list > li::before { content:"\2713"; position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#1b7f3b; font-weight:700; }
+.work-article ul.arrow-list { list-style:none; }
+.work-article ul.arrow-list > li { position:relative; padding:8px 10px 8px 34px; margin:0 0 10px; background:#fdfdfd; border:1px solid #e7e2e2; border-radius:9px; }
+.work-article ul.arrow-list > li::before { content:"\2192"; position:absolute; left:12px; top:50%; transform:translateY(-50%); color:#8B0000; font-weight:700; }
+.work-article strong { color:#222; }
+.work-article a { color:#8B0000; text-decoration:none; }
+.work-article a:hover { text-decoration:underline; }
+.work-article h2:target { outline:3px solid #8B0000; outline-offset:4px; border-radius:4px; }
+.work-article h2 { scroll-margin-top:120px; }
+
+@media (max-width: 1100px) {
+    .work-layout { grid-template-columns:220px 1fr; gap:40px; }
+    .work-toc a { font-size:0.88rem; }
+}
+@media (max-width: 900px) {
+    .work-layout { grid-template-columns:1fr; }
+    .work-sidebar { position:relative; top:auto; margin-bottom:36px; }
+    .work-toc { display:flex; overflow-x:auto; white-space:nowrap; padding:14px 16px; scrollbar-width:none; -ms-overflow-style:none; }
+    .work-toc::-webkit-scrollbar { display:none; }
+    .work-toc ol { display:flex; gap:16px; }
+    .work-toc li { margin:0; }
+    .work-toc a { padding:8px 14px; min-width:140px; font-size:0.9rem; }
+    .work-toc a::before { position:static; transform:none; margin-right:6px; }
+}
+@media (max-width: 576px) {
+    .work-page-content { padding:46px 0 70px; }
+    .work-article h2 { font-size:1.55rem; }
+    .work-article p { font-size:1rem; }
+    .work-article ol.numbered-list > li { padding:10px 12px 10px 48px; }
+    .work-article ol.numbered-list > li::before { left:12px; }
 }
