@@ -576,7 +576,7 @@ body {
 }
 
 .logos-container img {
-    max-height: 100px;
+    max-height: 120px; /* increased by 20% from 100px */
     filter: grayscale(0%);
     transition: all 0.3s ease;
     transform: scale(1);
@@ -977,6 +977,17 @@ body {
     background-color: #fff;
 }
 
+/* Themed Forms (Complaint / Join) */
+.themed-form { margin-top: 10px; }
+.themed-form .form-grid { display: grid; gap: 18px 28px; grid-template-columns: repeat(auto-fit,minmax(240px,1fr)); }
+.themed-form label { font-weight: 600; font-size: 0.88rem; color: #4a0d0d; display: flex; flex-direction: column; gap: 6px; }
+.themed-form input, .themed-form select, .themed-form textarea { font: inherit; padding: 10px 12px; border:1px solid #c8b9b9; border-radius:8px; background:#fff; resize: vertical; box-shadow:0 2px 4px rgba(0,0,0,0.04) inset; }
+.themed-form textarea { line-height: 1.5; }
+.themed-form input:focus, .themed-form select:focus, .themed-form textarea:focus { outline:2px solid #8B0000; border-color:#8B0000; }
+.themed-form .form-actions { text-align: right; }
+.themed-form button.btn { cursor: pointer; }
+@media (max-width: 640px){ .themed-form .form-grid { grid-template-columns: 1fr; } }
+
 .report-list {
     list-style: none;
     padding: 0;
@@ -1097,3 +1108,32 @@ body {
     .work-article ol.numbered-list > li { padding:10px 12px 10px 48px; }
     .work-article ol.numbered-list > li::before { left:12px; }
 }
+
+    /* === Blank Grid Dropdown (4x4) for placeholder menus === */
+    .dropdown-menu.blank-grid-menu {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        grid-auto-rows: 42px; /* consistent cell height */
+        column-count: unset; /* override existing multi-column */
+        column-gap: 0; /* reset */
+        row-gap: 6px;
+        min-width: 420px; /* keep same width as standard */
+        padding: 18px 22px 20px; /* balanced interior padding */
+    }
+    .dropdown-menu.blank-grid-menu::before { display: none; }
+    .dropdown-menu.blank-grid-menu li { border: none; padding: 0; margin: 0; }
+    .dropdown-menu.blank-grid-menu li span {
+        display: block;
+        width: 100%;
+        height: 100%;
+        background: rgba(255,255,255,0.35); /* subtle placeholder tint */
+        border-radius: 6px;
+        opacity: 0.18; /* very faint */
+    }
+    .dropdown-menu.blank-grid-menu li span:hover { opacity: 0.28; }
+
+    @media (max-width: 992px) {
+        .dropdown-menu.blank-grid-menu { grid-template-columns: repeat(2, 1fr); min-width: 260px; }
+        .dropdown-menu.blank-grid-menu { grid-auto-rows: 40px; }
+    }
+

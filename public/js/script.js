@@ -209,6 +209,42 @@ document.addEventListener('DOMContentLoaded', function() {
 
         setInterval(nextSlide, slideInterval);
     }
+
+    // Stats Count-up Animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    if (statNumbers.length) {
+        const animateCount = (el) => {
+            const target = parseInt(el.getAttribute('data-target'), 10) || 0;
+            const duration = 1500; // ms
+            const startTime = performance.now();
+            const formatter = (v) => v.toLocaleString() + '+';
+
+            function update(now) {
+                const progress = Math.min(1, (now + 16 - startTime) / duration);
+                const eased = 1 - Math.pow(1 - progress, 3); // easeOutCubic
+                const current = Math.floor(eased * target);
+                el.textContent = formatter(current);
+                if (progress < 1) requestAnimationFrame(update);
+                else el.textContent = formatter(target);
+            }
+            requestAnimationFrame(update);
+        };
+
+        const onIntersect = (entries, observer) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateCount(entry.target);
+                    observer.unobserve(entry.target);
+                }
+            });
+        };
+
+        const observer = ('IntersectionObserver' in window) ? new IntersectionObserver(onIntersect, { threshold: 0.3 }) : null;
+
+        statNumbers.forEach(num => {
+            if (observer) observer.observe(num); else animateCount(num);
+        });
+    }
 });
 
 // Removed arrow scroll buttons per request; users can swipe/drag to scroll the nav.
